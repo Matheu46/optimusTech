@@ -1,0 +1,40 @@
+---
+import Botao from './Botao.astro';
+---
+
+<header class="container">
+  <img src="./logo.svg" alt="OptimusTech">
+  <ul>
+    <li><a href="">Home</a></li>
+    <li><a href="">Produtos</a></li>
+    <li><a href="">Recursos</a></li>
+    <li><a href="">Sobre nós</a></li>
+  </ul>
+  <div class="botoes">
+    <a href="./">Entrar</a>
+    <Botao label = 'Cadastrar'/>
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 32px;
+    gap: 22px;
+  }
+  ul {
+    display: flex;
+    gap: 32px;
+  }
+  .botoes a{
+    margin-right: 30px;
+  }
+
+  @media (max-width:850px) {
+    header {
+      flex-wrap: wrap;
+    }
+  }
+</style>
