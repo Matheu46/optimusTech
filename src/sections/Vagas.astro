@@ -1,8 +1,26 @@
+---
+import CardVaga from "../componetes/CardVaga.astro";
+
+---
+
 <section class="container">
   <span>Vagas abertas</span>
   <h1>Estamos procurando por talentos</h1>
   <p>Somos uma equipe 100% remota com pessoas do Brasil inteiro.</p>
   <img src="./image.png" alt="Pessoas em um mesa em reunião">
+  <div>
+    <h2>Design</h2>
+    <div class="vagas-lista">
+      <CardVaga titulo="Product Designer" carga="Full-time" salario="7.000"/>
+      <CardVaga titulo="UX Designer" carga="Full-time" salario="6.000"/>
+    </div>
+    <h2>Desenvolvimento de Software</h2>
+    <div class="vagas-lista">
+      <CardVaga titulo="Desenvolvedor(a) iOS" carga="Full-time" salario="8.000"/>
+      <CardVaga titulo="Desenvolvedor(a) Front-end" carga="Full-time" salario="7.000"/>
+      <CardVaga titulo="Desenvolvedor(a) Back-end" carga="Full-time" salario="8.000"/>
+    </div>
+  </div>
 </section>
 
 <style>
@@ -29,6 +47,15 @@
     margin-top: 16px;
     margin-bottom: 20px;
   }
+  h2 {
+    text-align: left;
+    font-size: 1.25rem;
+    line-height: 1.875;
+    font-weight: 500;
+    color: var(--gray-900);
+    margin-top: 64px;
+    margin-bottom: 32px;
+  }
   p {
     font-size: 1.25rem;
     line-height: 1.5;
@@ -37,5 +64,9 @@
   }
   img {
     width: 100%;
+  }
+  .vagas-lista {
+    display: grid;
+    gap: 24px;
   }
 </style>

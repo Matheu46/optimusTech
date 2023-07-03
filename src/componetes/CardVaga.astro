@@ -1,0 +1,35 @@
+---
+const {titulo, carga, salario} = Astro.props;
+---
+
+<div class="vaga">
+  <h3>{titulo}</h3>
+  <div class="vaga-informacoes">
+    <span>{carga}</span>
+    <span>Faixa salarial: R${salario}</span>
+  </div>
+</div>
+
+<style>
+  .vaga {
+    border: solid 1px rgba(234, 236, 240, 1);
+    border-radius: 16px;
+    padding: 24px 24px 28px 24px;
+    text-align: left;
+  }
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.75;
+    color: var(--gray-900);
+    margin-bottom: 32px;
+  }
+  .vaga-informacoes {
+    display: flex;
+    gap: 24px;
+  }
+  .vaga-informacoes span {
+    font-weight: 500;
+    color: #667085;
+  }
+</style>
