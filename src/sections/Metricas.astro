@@ -1,0 +1,33 @@
+---
+import Metrica from "../componetes/Metrica.astro";
+
+---
+
+<section class="container">
+  <Metrica numero="400+" titulo="Projetos concluídos" texto="Nós ajudamos a construir mais de 400 projetos incríveis."/>
+  <Metrica numero="100+" titulo="Colaboradores" texto="Temos mais de 100 colaboradores no nosso time que se preocupam com nossos clientes."/>
+  <Metrica numero="20k" titulo="Downloads" texto="Nossos projetos que estão disponíveis em lojas já foram baixados mais de 20.000 vezes."/>
+  <Metrica numero="500+" titulo="Reviews 5 estrelas " texto="Estamos orgulhosos de contar com mais de 500 reviews 5 estrelas em nossos produtos."/>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* justify-content: space-between; */
+    gap: 32px;
+    padding: 0 16px;
+  }
+  @media (max-width: 850px) {
+    section {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    section {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+const {numero, titulo, texto} = Astro.props;
+---
+
+<div>
+  <span>{numero}</span>
+  <h2>{titulo}</h2>
+  <p>{texto}</p>
+</div>
+
+<style>
+  span {
+    font-size: 3.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -2%;
+    color: var(--main-color);
+  }
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: var(--gray-900);
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+  p {
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+</style>
