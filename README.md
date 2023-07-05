@@ -4,6 +4,8 @@ Desafio de programação front-end para praticar HTML e CSS, o escopo do projeto
 
 [Layout do Figma](https://www.figma.com/file/mm3MLozvUDGhDRTxSLlGL5/7daysOfCode-HTML-CSS?type=design&node-id=0%3A1&mode=dev)
 
+[Acessar solução](https://warm-crumble-f072e1.netlify.app/)
+
 ## Estrutura do projeto
 
 A página foi desenvolvida com o Astro, então para rodar no seu computador utilize `npm run dev`
