@@ -4,17 +4,39 @@ import Botao from './Botao.astro';
 
 <header class="container">
   <img src="./logo.svg" alt="OptimusTech">
-  <ul>
-    <li><a href="">Home</a></li>
-    <li><a href="">Produtos</a></li>
-    <li><a href="">Recursos</a></li>
-    <li><a href="">Sobre nós</a></li>
-  </ul>
-  <div class="botoes">
-    <a href="./">Entrar</a>
-    <Botao label = 'Cadastrar'/>
-  </div>
+  <nav id="nav">
+    <button aria-label="Abrir Menu" id="botao-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false" >
+      <span id="icone-mobile"></span>
+    </button>
+    <div class="menu" id="menu" role="menu">
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Produtos</a></li>
+        <li><a href="">Recursos</a></li>
+        <li><a href="">Sobre nós</a></li>
+      </ul>
+      <div class="botoes">
+        <a href="./">Entrar</a>
+        <Botao label = 'Cadastrar'/>
+      </div>
+    </div>
+  </nav>
 </header>
+
+<script>
+  function toggleMenu(event) {
+    if(event.type === 'touchstart') event.preventDefault();
+    const nav = document.getElementById('nav');
+    nav.classList.toggle('ativo');
+    const ativo = nav.classList.contains('ativo');
+    event.currentTarget.setAttribute('aria-expanded', ativo);
+    ativo ? event.currentTarget.setAttribute('aria-label', 'Fechar Menu') : event.currentTarget.setAttribute('aria-label', 'Abrir Menu') 
+  }
+  const botaoMobile = document.getElementById('botao-mobile');
+  botaoMobile.addEventListener('click', toggleMenu)
+  botaoMobile.addEventListener('touchstart', toggleMenu)
+
+</script>
 
 <style>
   header {
@@ -22,7 +44,16 @@ import Botao from './Botao.astro';
     justify-content: space-between;
     align-items: center;
     padding: 18px 32px;
-    gap: 22px;
+    gap: 64px;
+  }
+  nav {
+    width: 100%;
+  }
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 64px;
   }
   ul {
     display: flex;
@@ -32,9 +63,85 @@ import Botao from './Botao.astro';
     margin-right: 30px;
   }
 
-  @media (max-width:850px) {
-    header {
-      flex-wrap: wrap;
+  a:hover {
+    color: rgba(152, 162, 179, 1);
+  }
+
+  #botao-mobile {
+    display: none;
+  }
+
+
+  @media ((max-width:890px)){
+    nav {
+      width: auto;
+    }
+    .menu {
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 80px;
+      right: 0px;
+      z-index: 100;
+      background: rgba(249, 250, 251, 1);
+      transition: .6s;
+      height: 0px;
+      visibility: hidden;
+      overflow-y: hidden;
+    }
+    nav.ativo .menu {
+      height: calc(100vh - 80px);
+      visibility: visible;
+      overflow-y: auto;
+    }
+    ul {
+      display: block;
+      margin: 0 1rem;
+    }
+    ul a {
+      border-bottom: 2px solid rgba(142, 36, 36, 1);
+    }
+    .botoes {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 64px;
+    }
+    ul a{
+      display: block;
+      padding: 1rem 0;
+    }
+    #botao-mobile {
+      display: flex;
+      padding: .5rem 1rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      gap: .5rem;
+    }
+    #icone-mobile {
+      border-top: 2px solid var(--gray-900);
+      width: 20px
+    }
+    #icone-mobile::after, #icone-mobile::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      margin-top: 5px;
+      transition: .3s;
+      position: relative;
+    }
+    #nav.ativo #icone-mobile {
+      border-top-color: transparent;
+    }
+    #nav.ativo #icone-mobile::before {
+      transform: rotate(135deg);
+    }
+    #nav.ativo #icone-mobile::after {
+      transform: rotate(-135deg);
+      top: -7px;
     }
   }
 </style>
